@@ -1,0 +1,19 @@
+1,Paper,Réseaux,Dataset,Nb vues,Config,Accuracy,Best ?
+a,Su 15,MVCNN,Modelnet40,12,circular,89.9,Non
+b,Su 15,MVCNN,Modelnet40,80,~dodecahedral,90.1,Oui
+c,Wang 17,Dominant set,Modelnet40,12,circular,"93,8",Oui
+d,Chen 18,VERAM,ModelNet10,9,other,"95,5",Oui
+e,Chen 18,VERAM,Modelnet40,9,other,"93,7",Oui
+f,Feng 18,G(roup)VCNN,Modelnet40,12,circular,"92,6",Non
+g,Feng 18,G(roup)VCNN,Modelnet40,8,circular,"93,1",Oui
+h,Kanezaki 18,RotationNet,ModelNet10,,???,"98,46",Oui
+i,Kanezaki 18,RotationNet,Modelnet40,,???,"97,37",Oui
+j,Yang 19,RelationNet,ModelNet10,12,circular,"95,3",Oui
+k,Yang 19,RelationNet,Modelnet40,12,circular,"94,3",Oui
+kk,Zhou 19,MVSG-DNN,ModelNet10,20,~dodecahedral,"91,3",Non
+l,Zhou 19,MVSG-DNN,Modelnet40,20,~dodecahedral,"90,4",Non
+ll,Zhou 19,MVSG-DNN,ModelNet10,12,circular,94,Oui
+m,Zhou 19,MVSG-DNN,Modelnet40,12,circular,"92,3",Oui
+n,Wei 20,view-G(raph)CN,Modelnet40,12,circular,"97,6",Oui
+o,Hambi 21,MVTN,Modelnet40,12,circular,"93,8",Oui
+p,Hambi 21,MVTN,Modelnet40,20,~dodecahedral,"93,5",Non
