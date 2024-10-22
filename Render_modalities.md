@@ -1,4 +1,4 @@
-*  Su 15 :
+* Su 15 :
   
   * Circular config 12 AVEC élévation de $30^{\circ}$
   
@@ -19,6 +19,7 @@
   * Dodecahedral config 20 pour objet sans upright orientation
 
 * Feng 18 Group-view CNN :
+  
   * Circular config 8 : 8 vues séparées de 45° sur l'équateur
   * Circular config 12 : 12 vues séparées de 30° sur l'équateur
     /!\ Vu les images dans l'article, je soupçonne que les caméras sont élevées de 30° par rapport à l'équateur. 
@@ -27,7 +28,11 @@
   
   * Circular config 12 AVEC élévation de 30° par rapport à l'équateur == 'vue légérement de haut'
 
-* Zhou 19 en cours …
+* Zhou 19 sur ModelNet40 et ModelNet10 :
+  
+  * Circular config 12 AVEC élévation de  $30^{\circ}$ par rapport à l'équateur
+  
+  * Dodecahedral}config avec 20 vues
 
 * Wei 20 view-Graph-CN 
   
@@ -44,6 +49,7 @@
   * Spherical config N : N vues 'equally-spaced on a sphere' ~ dodécahedral
 
 * Hou 24 MVSelect : d'après ce qu'il y a dans le git
+  
   * Circular config 12 AVEC élévation 30°
   * Dodécahédral 20 vues
 
@@ -56,8 +62,6 @@ Toutes les circular config sont centrées au centroid de l'objet 3D, cf figure 4
 2. Circular config 12 : 12 vues séparées de 30° sur l'équateur
 
 --> Les rendues avec Circular config 12 ET Dodecahedral 20, sont déjà disponoble sur le git de [Hou 24] : https://github.com/hou-yz/MVSelect
-
-
 
 --> Positionner les vpts sur une sphere : ref cité dans Hamdi 21
 Markus Deserno. How to generate equidistributed points on the surface of a sphere.
