@@ -1,0 +1,3 @@
+Dataset-aligned/car/test/car_0236_SMPLER_centered_scaled_remeshing_iso_iter4_aligned_us-PBL.obj
+Dataset-aligned/car/train/car_0021_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_us.obj
+Dataset-aligned/car/train/car_0070_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_us.obj
