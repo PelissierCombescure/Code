@@ -1,0 +1,18 @@
+
+body {
+    background-color: rgb(3, 26, 33); 
+}
+
+.canvas {
+    position: absolute;
+    overflow: visible;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(3, 26, 33, 0);
+}
+
+.container{
+    height:20px;
+    background-color: #CCC;
+    position: relative
+}
