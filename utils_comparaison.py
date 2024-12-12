@@ -1,6 +1,8 @@
 import numpy as np
 import trimesh
 import pickle
+import matplotlib.pyplot as plt
+import os 
 
 def read_pkl(dict_path):
     output = open(dict_path,'rb')
@@ -73,3 +75,43 @@ def add_cube_to_obj(obj_file, center, color, vertex_offset, cube_size):
     # Return the updated vertex offset
     return vertex_offset + 8  # Each cube adds 8 vertices
 
+def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us, categorie_us,  dir_outputs):
+    ## OBJ file with (12 cameras + obj)
+    # Vertices and faces of the model user study
+    verts_mesh_modelnet = np.array(mesh_modelnet.vertices)
+    faces_mesh_modelnet = np.array(mesh_modelnet.faces) 
+    # colors : Blanc cam 1 --> Jaune cam 4 ---> Rouge cam 10 --> Rouge foncé cam 12
+    colormap = plt.get_cmap('hot'); colors_modelnet = colormap(np.linspace(0, 1, 12))[::-1] 
+    with open(os.path.join(dir_outputs, name_modelnet+"_modelNet40+12cam.obj"), 'w') as obj_file:
+        # Write vertices
+        for vertex in verts_mesh_modelnet:
+            obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
+        # Write 12 cameras positions
+        vertex_offset = len(verts_mesh_modelnet)
+        for cube_center, cube_color in zip(cams_modelnet_mesh[:, :3], colors_modelnet[:,:3]):  
+            vertex_offset = add_cube_to_obj(obj_file, cube_center, cube_color, vertex_offset, cube_size=0.3)
+        # Write faces
+        for face in faces_mesh_modelnet:
+            # Convert face indices to 1-based indexing
+            obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
+            
+    ################################################################################"" 
+    ## OBJ file with (8 cameras + obj)
+    # Vertices and faces of the model user study
+    verts_mesh_us = np.array(mesh_us.vertices)
+    faces_mesh_us = np.array(mesh_us.faces) 
+    # colors : Jaune cam 1 --> Vert cam 3 ---> Bleu cam 5 --> Bleu foncé cam 8
+    colormap = plt.get_cmap('hot'); colors_us = colormap(np.linspace(0, 1, 8))[::-1] 
+    # Write obj
+    with open(os.path.join(dir_outputs, categorie_us+"_us+8cam.obj"), 'w') as obj_file:
+        # Write vertices
+        for vertex in verts_mesh_us:
+            obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
+        # Write 8 cameras positions
+        vertex_offset = len(verts_mesh_us)
+        for cube_center, cube_color in zip(cams_us[:, :3], colors_us[:,:3]):  
+            vertex_offset = add_cube_to_obj(obj_file, cube_center, cube_color, vertex_offset, cube_size=0.3)
+        # Write faces
+        for face in faces_mesh_us:
+            # Convert face indices to 1-based indexing
+            obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
