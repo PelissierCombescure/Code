@@ -1,2 +1,0 @@
-Dataset-aligned/car/train/car_0192_SMPLER_centered_scaled_remeshing_iso_iter6_aligned_us_ok.obj
-Dataset-aligned/car/train/car_0181_SMPLER_centered_scaled_remeshing_iso_iter6_aligned_us_ok.obj
