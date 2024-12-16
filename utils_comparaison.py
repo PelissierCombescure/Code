@@ -3,6 +3,7 @@ import trimesh
 import pickle
 import matplotlib.pyplot as plt
 import os 
+import math
 
 def read_pkl(dict_path):
     output = open(dict_path,'rb')
@@ -23,7 +24,6 @@ def create_rotation_matrix(axis, angle_degrees):
         direction=direction,  # Axe de rotation
         point=[0, 0, 0])  # Centre de rotation (origine)
     return rotation_matrix
-
 
 def add_cube_to_obj(obj_file, center, color, vertex_offset, cube_size):
     """
@@ -115,3 +115,54 @@ def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us
         for face in faces_mesh_us:
             # Convert face indices to 1-based indexing
             obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
+            
+                            
+def put_cam_on_sphere(R_sphere, cam_rep_etude, centroid_rep_etude):
+    # on place la camera sur la sphère des 40 caméras
+    # O : centroid, A point à trouver et C : camera
+    # on veut que OC et OA soit colinaires et ||OA|| = R 
+    [xo, yo, zo] = centroid_rep_etude; [xc, yc, zc] = cam_rep_etude
+    # distance OC :
+    d = math.sqrt((xo-xc)**2 + (yo-yc)**2 +(zo-zc)**2)
+    # le rayon correspond à k*R = d
+    k = d/R_sphere
+    # si colinaireas alors OC = k*OA --> k = (xc-xo)/(xa-xo) = (yc-yo)/(ya-yo) = (zc-zo)/(za-zo)
+    xa = ((xc-xo)/k) + xo
+    ya = ((yc-yo)/k) + yo
+    za = ((zc-zo)/k) + zo
+    cam_rep_etude_sphere = [xa,ya,za]
+    return cam_rep_etude_sphere
+
+def cross(a, b):
+    c = np.array([a[1]*b[2] - a[2]*b[1],
+         a[2]*b[0] - a[0]*b[2],
+         a[0]*b[1] - a[1]*b[0]])
+
+    return c
+# a_faces est un array de taille nb_sommetx3 avec les indices des sommets de chauqe face
+# a_coords est un array contenant les coordonnées 3D de tous les sommets du mesh
+def get_centroid(a_faces, a_coords):
+    area_total = 0
+    centroid = np.array([0,0,0])
+    for face in a_faces:
+        v0 = a_coords[face[0],:]
+        v1 = a_coords[face[1],:]
+        v2 = a_coords[face[2],:]
+        center = (v0+v1+v2)/3
+        T_area = np.linalg.norm(cross(v1-v2, v0-v2))*0.5
+        area_total = area_total + T_area
+        centroid = centroid + T_area*center
+
+    centroid = centroid/area_total
+    return centroid
+
+# mu : cam etude 
+# x : cam issue d'une image 
+def gaussian(sig, mu, x):
+    # coeff 
+    coef_denom = math.pow((2*math.pi), 3/2)*math.pow(sig, 3)
+    coef = 1/coef_denom
+    # exponentielle
+    vect_diff = np.array(x) - np.array(mu)
+    puissance = -1* (np.dot(vect_diff, vect_diff)) / (2*math.pow(sig, 2))
+    return coef*np.exp(puissance)   
