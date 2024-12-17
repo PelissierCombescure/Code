@@ -5,11 +5,20 @@ import matplotlib.pyplot as plt
 import os 
 import math
 
+# Description : Lit un fichier pickle et retourne son contenu.
+# Paramètres :
+# # dict_path : Chemin vers le fichier pickle.
+# Retourne : Un dictionnaire (ou tout autre objet sérialisé dans le pickle).
 def read_pkl(dict_path):
     output = open(dict_path,'rb')
     dict = pickle.load(output)
     return dict
 
+# Description : Crée une matrice de rotation 4x4 autour d'un axe donné (X, Y ou Z) pour un angle donné en degrés.
+# Paramètres :
+# # axis : Axe de rotation, doit être 'X', 'Y' ou 'Z'.
+# # angle_degrees : Angle de rotation en degrés.
+# Retourne : Une matrice de rotation 4x4 de type numpy.array.
 def create_rotation_matrix(axis, angle_degrees):
     # Convertir l'angle en radians
     angle_radians = np.radians(angle_degrees)
@@ -25,6 +34,14 @@ def create_rotation_matrix(axis, angle_degrees):
         point=[0, 0, 0])  # Centre de rotation (origine)
     return rotation_matrix
 
+# Description : Ajoute un cube dans un fichier .obj.
+# Paramètres :
+# # obj_file : Objet fichier ouvert pour écriture.
+# # center : Coordonnées [x,y,z] du centre du cube.
+# # color : Couleur [r,g,b] dans l'intervalle  [0,1].
+# # vertex_offset : Décalage actuel des indices des sommets.
+# # cube_size : Taille des côtés du cube.
+# Retourne : Le nouveau décalage des indices des sommets après l'ajout du cube.
 def add_cube_to_obj(obj_file, center, color, vertex_offset, cube_size):
     """
     Add a cube to an open .obj file.
@@ -75,7 +92,19 @@ def add_cube_to_obj(obj_file, center, color, vertex_offset, cube_size):
     # Return the updated vertex offset
     return vertex_offset + 8  # Each cube adds 8 vertices
 
-def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us, categorie_us,  dir_outputs):
+# Description : Génère deux fichiers .obj :
+# Avec un modèle et 12 positions de caméra.
+# Avec un modèle et 8 positions de caméra.
+# Paramètres :
+# # mesh_modelnet : Objet 3D pour le premier modèle.
+# # cams_modelnet_mesh : Positions des caméras pour le premier modèle.
+# # name_modelnet : Nom pour le fichier de sortie du premier modèle.
+# # mesh_us : Objet 3D pour le second modèle.
+# # cams_us : Positions des caméras pour le second modèle.
+# # categorie_us : Nom pour le fichier de sortie du second modèle.
+# # dir_outputs : Répertoire de sauvegarde des fichiers générés.
+# Retourne : Aucun.
+def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us, categorie_us,  dir_outputs, US_obj, ):
     ## OBJ file with (12 cameras + obj)
     # Vertices and faces of the model user study
     verts_mesh_modelnet = np.array(mesh_modelnet.vertices)
@@ -98,25 +127,49 @@ def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us
     ################################################################################"" 
     ## OBJ file with (8 cameras + obj)
     # Vertices and faces of the model user study
-    verts_mesh_us = np.array(mesh_us.vertices)
-    faces_mesh_us = np.array(mesh_us.faces) 
-    # colors : Jaune cam 1 --> Vert cam 3 ---> Bleu cam 5 --> Bleu foncé cam 8
-    colormap = plt.get_cmap('hot'); colors_us = colormap(np.linspace(0, 1, 8))[::-1] 
-    # Write obj
-    with open(os.path.join(dir_outputs, categorie_us+"_us+8cam.obj"), 'w') as obj_file:
+    if US_obj :
+        verts_mesh_us = np.array(mesh_us.vertices)
+        faces_mesh_us = np.array(mesh_us.faces) 
+        # colors : Jaune cam 1 --> Vert cam 3 ---> Bleu cam 5 --> Bleu foncé cam 8
+        colormap = plt.get_cmap('hot'); colors_us = colormap(np.linspace(0, 1, 8))[::-1] 
+        # Write obj
+        with open(os.path.join(dir_outputs, categorie_us+"_us+8cam.obj"), 'w') as obj_file:
+            # Write vertices
+            for vertex in verts_mesh_us:
+                obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
+            # Write 8 cameras positions
+            vertex_offset = len(verts_mesh_us)
+            for cube_center, cube_color in zip(cams_us[:, :3], colors_us[:,:3]):  
+                vertex_offset = add_cube_to_obj(obj_file, cube_center, cube_color, vertex_offset, cube_size=0.3)
+            # Write faces
+            for face in faces_mesh_us:
+                # Convert face indices to 1-based indexing
+                obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
+
+def show_some_cams(mesh, name, cams, colors, dir_outputs) : # Vertices and faces of the model user study
+    verts_mesh = np.array(mesh.vertices)
+    faces_mesh = np.array(mesh.faces) 
+    # colors : Blanc cam 1 --> Jaune cam 4 ---> Rouge cam 10 --> Rouge foncé cam 12
+    colormap = plt.get_cmap('hot'); colors_modelnet = colormap(np.linspace(0, 1, 12))[::-1] 
+    with open(os.path.join(dir_outputs, name+"_proximity_score.obj"), 'w') as obj_file:
         # Write vertices
-        for vertex in verts_mesh_us:
+        for vertex in verts_mesh:
             obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
-        # Write 8 cameras positions
-        vertex_offset = len(verts_mesh_us)
-        for cube_center, cube_color in zip(cams_us[:, :3], colors_us[:,:3]):  
-            vertex_offset = add_cube_to_obj(obj_file, cube_center, cube_color, vertex_offset, cube_size=0.3)
+        # Write 12 cameras positions
+        vertex_offset = len(verts_mesh)
+        for k in range(len(cams)):  
+            vertex_offset = add_cube_to_obj(obj_file, cams[k], colors[k], vertex_offset, cube_size=0.3)
         # Write faces
-        for face in faces_mesh_us:
+        for face in faces_mesh:
             # Convert face indices to 1-based indexing
             obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
-            
-                            
+
+# Description : Calcule la position d'une caméra sur une sphère en la plaçant à une distance donnée du centre.
+# Paramètres :
+# # R_sphere : Rayon de la sphère.
+# # cam_rep_etude : Coordonnées initiales de la caméra [x,y,z].
+# # centroid_rep_etude : Coordonnées du centre de la sphère [x,y,z].
+# Retourne : Coordonnées ajustées de la caméra sur la sphère [x,y,z].
 def put_cam_on_sphere(R_sphere, cam_rep_etude, centroid_rep_etude):
     # on place la camera sur la sphère des 40 caméras
     # O : centroid, A point à trouver et C : camera
@@ -133,14 +186,19 @@ def put_cam_on_sphere(R_sphere, cam_rep_etude, centroid_rep_etude):
     cam_rep_etude_sphere = [xa,ya,za]
     return cam_rep_etude_sphere
 
+# Description : Calcule le produit vectoriel entre deux vecteurs 3D.
 def cross(a, b):
     c = np.array([a[1]*b[2] - a[2]*b[1],
          a[2]*b[0] - a[0]*b[2],
          a[0]*b[1] - a[1]*b[0]])
 
     return c
-# a_faces est un array de taille nb_sommetx3 avec les indices des sommets de chauqe face
-# a_coords est un array contenant les coordonnées 3D de tous les sommets du mesh
+
+# Description : Calcule le centroïde d'un maillage 3D pondéré par l'aire de ses faces.
+# Paramètres :
+# # a_faces : Tableau contenant les indices des sommets pour chaque face (N×3).
+# # a_coords : Coordonnées 3D des sommets du maillage (M×3).
+# Retourne : Le centroïde [x,y,z].
 def get_centroid(a_faces, a_coords):
     area_total = 0
     centroid = np.array([0,0,0])
@@ -156,8 +214,10 @@ def get_centroid(a_faces, a_coords):
     centroid = centroid/area_total
     return centroid
 
-# mu : cam etude 
-# x : cam issue d'une image 
+#Description : Calcule la probabilité d'une valeur donnée sous une distribution gaussienne 3D.
+# Paramètres :
+# # mu : cam etude 
+# # x : cam issue d'une image 
 def gaussian(sig, mu, x):
     # coeff 
     coef_denom = math.pow((2*math.pi), 3/2)*math.pow(sig, 3)
@@ -166,3 +226,6 @@ def gaussian(sig, mu, x):
     vect_diff = np.array(x) - np.array(mu)
     puissance = -1* (np.dot(vect_diff, vect_diff)) / (2*math.pow(sig, 2))
     return coef*np.exp(puissance)   
+
+
+
