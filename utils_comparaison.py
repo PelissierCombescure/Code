@@ -146,12 +146,13 @@ def show_cams(mesh_modelnet, cams_modelnet_mesh, name_modelnet, mesh_us, cams_us
                 # Convert face indices to 1-based indexing
                 obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
 
+## Description : Génère un fichier .obj avec un modèle (mesh) et des caméras (cams) olorées (colors)
 def show_some_cams(mesh, name, cams, colors, dir_outputs) : # Vertices and faces of the model user study
     verts_mesh = np.array(mesh.vertices)
     faces_mesh = np.array(mesh.faces) 
     # colors : Blanc cam 1 --> Jaune cam 4 ---> Rouge cam 10 --> Rouge foncé cam 12
     colormap = plt.get_cmap('hot'); colors_modelnet = colormap(np.linspace(0, 1, 12))[::-1] 
-    with open(os.path.join(dir_outputs, name+"_proximity_score.obj"), 'w') as obj_file:
+    with open(os.path.join(dir_outputs, name+".obj"), 'w') as obj_file:
         # Write vertices
         for vertex in verts_mesh:
             obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
@@ -228,4 +229,36 @@ def gaussian(sig, mu, x):
     return coef*np.exp(puissance)   
 
 
+# A partir du mesh aligné à l'US, on applique les memes transformations au 12 caméras de ModelNet40
+# Pour les places dans le repère US (=cams_modelnet_mesh)
+# Puis on détermine les coordonnées de la cam BVS dans le repère US (=cam_bvs_model et num_cam_bvs_model)
+def bvs_cams_modelnet_aligned(path_mesh, path_mesh_modelnet_aligned, dir_bvs, cams_modelnet):
+    # Transformation du mesh de ModelNet40 en mesh de l'étude utilisateur
+    transformations = read_pkl(path_mesh_modelnet_aligned.replace(".obj", ".pkl"))
+    # Transformation des 12 cameras pour mettre dans le repère de l'étude utilisateur comme le modèle 
+    cams_modelnet_mesh = cams_modelnet.copy()
+    for n in range(0, len(transformations)):
+        # Rotation Rn
+        R = transformations[f"transformations{n}"]
+        cams_modelnet_mesh = np.dot(R, cams_modelnet_mesh.T).T
+        
+    ## BVS ATTENTION DANS LE CALCULS DE LA BVS ON A BOUCLE SUR RANGE(1,13) ET NON PAS SUR RANGE(0,12)
+    num_cam_bvs_modelnet = read_pkl(os.path.join(dir_bvs, os.path.basename(path_mesh)+"_bvs.pkl"))['bvs'].split('_')[-1]
+    cam_bvs_modelnet = cams_modelnet_mesh[int(num_cam_bvs_modelnet)-1][:3]    
+    return cams_modelnet_mesh, cam_bvs_modelnet, num_cam_bvs_modelnet
 
+# cameras_modelnet : cameras BVS de ModelNet40 DANS LE REPERE US !!!!
+# cameras_US : caméras de l'US considérées dans le repère US
+def poids_modelnet_sur_US(df, camera_modelnet, centroid_modelnet, cameras_US, R_sphere, I_us, J_us, sigma=0.58, precision=2):
+    # Projection de la caméra BVS de ModelNet40 sur la sphère des caméras de l'US
+    camera_modelnet_sphere = put_cam_on_sphere(R_sphere, camera_modelnet, centroid_modelnet)#; print("Camera modelnet sur la sphere : ", camera_modelnet_sphere)
+    poids = []
+    for k in range(len(cameras_US)):
+        # poids de cam_sphere vis à vis de cam_etude_k
+        poids_k = np.round(gaussian(sigma, cameras_US[k, :3], camera_modelnet_sphere), precision) # ;print("Poids de la caméra modelnet sur la caméra US ", int(I_us[k]), J_us[k], labels_us[k], ": ", poids_k)
+        poids.append(poids_k)
+        
+    # Add the list poids as the 16 last columns of df and at the last row
+    for k in range(len(poids)):
+        df.loc[len(df)-1, f"{int(I_us[k])}-{J_us[k]}"] = np.round(poids[k]/sum(poids), precision)
+    return df, camera_modelnet_sphere
