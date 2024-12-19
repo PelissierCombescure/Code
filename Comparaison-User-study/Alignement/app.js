@@ -14,7 +14,10 @@ let mesh_not_aligned = []
 let mesh_pbl = []
 // chemin des meshs
 let meshes_tocheck = [];
-const txtFilePath = 'paths/paths_aligned_car_ok1.txt'; 
+const txtFilePath = 'paths/cup_meshes_aligned_ok.txt'; 
+// Load the OBJ file from the correct relative path
+const obj_file_path_source = 'Dataset-aligned/cup/test/cup_0094_SMPLER_centered_scaled_remeshing_iso_iter7_aligned.obj'; 
+//const obj_file_path_source = 'Dataset-aligned/car/test/car_0229_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_ok.obj'; 
 const categorie = txtFilePath.split('.')[0].split('_').at(-1)
 // Load paths from file and then call setUp_3D
 loadPathsFromFile(txtFilePath, () => {
@@ -205,8 +208,7 @@ function setUp_3D(idx_mesh){
     renderer_source.domElement.style.marginTop = (H_3D*0.04)+"px"; 
     document.body.appendChild( renderer_source.domElement );
     controls = new THREE.OrbitControls( camera );
-    // Load the OBJ file from the correct relative path
-    const obj_file_path_source = 'Dataset-aligned/car/test/car_0229_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_us.obj';  // Adjust the path as needed
+     // Adjust the path as needed
     // Call the function with the file path
     loadOBJFromPath(obj_file_path_source, scene_source);
 }

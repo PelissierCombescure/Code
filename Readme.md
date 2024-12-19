@@ -12,7 +12,7 @@
 
 `Dataset-Aligned/CATEGORIE/*/test ou /train`: contient 
 
-- les fichiers **_aligned.obj** des mesh qui ont été alignés avec les mesh de référence de la catégorie, mais pas forcément avec la même orientation
+- les fichiers **_aligned.obj** des mesh qui ont été alignés avec les mesh de référence de la catégorie, MAIS pas forcément avec la même orientation
 
 - les fichiers **_aligned_ok.obj**:  alignés + même orentiation
 
