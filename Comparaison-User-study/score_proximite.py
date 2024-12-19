@@ -11,7 +11,6 @@ def get_coord_from_ij(i, j, df_data_cams):
     # Extract the values of X_rep_etude, Y_rep_etude, Z_rep_etude
     return  [filtered_df['X_rep_etude'].values[0], filtered_df['Y_rep_etude'].values[0], filtered_df['Z_rep_etude'].values[0]]
 
-
 def get_label_from_ij(i, j, df_data_cams):
         # Assuming 'data_us_cam' is your DataFrame
     filtered_df = df_data_cams[(df_data_cams['i'] == i) & (df_data_cams['j'] == j)]
