@@ -14,9 +14,9 @@ let mesh_not_aligned = []
 let mesh_pbl = []
 // chemin des meshs
 let meshes_tocheck = [];
-const txtFilePath = 'paths/cup_meshes_aligned_ok.txt'; 
+const txtFilePath = 'paths/airplane_meshes_aligned.txt'; 
 // Load the OBJ file from the correct relative path
-const obj_file_path_source = 'Dataset-aligned/cup/test/cup_0094_SMPLER_centered_scaled_remeshing_iso_iter7_aligned.obj'; 
+const obj_file_path_source = 'Dataset-aligned/airplane/test/airplane_0637_SMPLER_centered_scaled_remeshing_iso_iter5_aligned.obj'; 
 //const obj_file_path_source = 'Dataset-aligned/car/test/car_0229_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_ok.obj'; 
 const categorie = txtFilePath.split('.')[0].split('_').at(-1)
 // Load paths from file and then call setUp_3D
