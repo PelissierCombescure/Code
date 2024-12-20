@@ -73,25 +73,34 @@ def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
 
     ## Version symetrique
     already_checked = []
-    df_both_sym = pd.DataFrame(columns=['label', 'poids_modelnet_norm', 'poids_us_norm'])
+    df_both_sym = pd.DataFrame(columns=['label', 'poids_modelnet', 'poids_us', 'poids_modelnet_norm', 'poids_us_norm'])
     for label in labels_us:
         # ij du labels
         i_label = data_us_cam.loc[data_us_cam['label'] == label]['i'].values[0]
         j_label = data_us_cam.loc[data_us_cam['label'] == label]['j'].values[0]
         # poids du label
-        poids_label_m = df_both[df_both['label'] == label]['poids_modelnet_norm'].values[0]
-        poids_label_u = df_both[df_both['label'] == label]['poids_us_norm'].values[0]
+        poids_label_m = df_both[df_both['label'] == label]['poids_modelnet'].values[0]    
+        poids_label_u = df_both[df_both['label'] == label]['poids_us'].values[0]
+        poids_label_m_norm = df_both[df_both['label'] == label]['poids_modelnet_norm'].values[0]
+        poids_label_u_norm = df_both[df_both['label'] == label]['poids_us_norm'].values[0]
         # Symetrique ?
         sym = get_sym([i_label, j_label], data_us_cam)
         if (sym[0]):
             if (sym[-1] not in already_checked) :
                 label_sym = sym[-1]; already_checked.append(label_sym); already_checked.append(label)
-                poids_label_sym_m = df_both[df_both['label'] == label_sym]['poids_modelnet_norm'].values[0]
-                poids_label_sym_u = df_both[df_both['label'] == label_sym]['poids_us_norm'].values[0]
-                df_both_sym.loc[len(df_both_sym)] = [label, np.mean([poids_label_m, poids_label_sym_m]), np.mean([poids_label_u, poids_label_sym_u])]   
+                poids_label_sym_m = df_both[df_both['label'] == label_sym]['poids_modelnet'].values[0]
+                poids_label_sym_u = df_both[df_both['label'] == label_sym]['poids_us'].values[0]
+                poids_label_sym_m_norm = df_both[df_both['label'] == label_sym]['poids_modelnet_norm'].values[0]
+                poids_label_sym_u_norm = df_both[df_both['label'] == label_sym]['poids_us_norm'].values[0]
+                df_both_sym.loc[len(df_both_sym)] = [label, 
+                                                     np.max([poids_label_m, poids_label_sym_m]), 
+                                                     np.max([poids_label_u, poids_label_sym_u]),
+                                                     np.max([poids_label_m_norm, poids_label_sym_m_norm]), 
+                                                     np.max([poids_label_u_norm, poids_label_sym_u_norm])]   
+             
             else : continue
         else :
-            df_both_sym.loc[len(df_both_sym)] = [label, poids_label_m, poids_label_u]
+            df_both_sym.loc[len(df_both_sym)] = [label, poids_label_m, poids_label_u, poids_label_m_norm, poids_label_u_norm]
             
     return df_both, df_both_sym
             
