@@ -165,6 +165,28 @@ def show_some_cams(mesh, name, cams, colors, dir_outputs) : # Vertices and faces
             # Convert face indices to 1-based indexing
             obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
 
+
+## Description : Génère un fichier .obj avec un modèle (mesh) et des caméras (cams) olorées (colors)
+#Couleur en fonction des poids
+def show_cams_histogram(name, cams, poids1, dir_outputs) :
+    mesh = trimesh.load_mesh("/home/pelissier/These-ATER/Papier_international3/Dataset/Autres_objet3D/axisX.obj")
+    verts_mesh = np.array(mesh.vertices)
+    faces_mesh = np.array(mesh.faces) 
+    # Blanc --> poids 0 ---> Violet --> poids 1
+    colormap = plt.get_cmap('RdPu'); colors = colormap(poids1)[:,:3]
+    with open(os.path.join(dir_outputs, name+".obj"), 'w') as obj_file:
+        # Write vertices
+        for vertex in verts_mesh:
+            obj_file.write(f"v {vertex[0]} {vertex[1]} {vertex[2]} 128 128 128\n")      
+        # Write 12 cameras positions
+        vertex_offset = len(verts_mesh)
+        for k in range(len(cams)):  
+            vertex_offset = add_cube_to_obj(obj_file, cams[k], colors[k], vertex_offset, cube_size=0.3)
+        # Write faces
+        for face in faces_mesh:
+            # Convert face indices to 1-based indexing
+            obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
+            
 # Description : Calcule la position d'une caméra sur une sphère en la plaçant à une distance donnée du centre.
 # Paramètres :
 # # R_sphere : Rayon de la sphère.

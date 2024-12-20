@@ -1,0 +1,3 @@
+,categorie,PS,euclidean_dist,manhattan_dist,cosine_similarity,fourier_dist
+0,carVasa,0.66,1.009,1.934,0.604,2.256
+1,cup,0.66,0.622,1.104,0.916,1.391

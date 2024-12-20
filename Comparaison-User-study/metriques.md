@@ -75,53 +75,6 @@ $$
 
 ---
 
-## **4. Distance de Wasserstein Circulaire**
-
-### **Description :**
-Cette distance étend le concept de Wasserstein pour prendre en compte les positions circulaires. Elle calcule le coût minimal pour transformer une distribution en une autre, en intégrant les distances géométriques.
-La distance de Wasserstein peut être adaptée pour considérer que les positions des caméras forment un cercle. Cela implique que le coût de transport entre deux positions dépend de la distance angulaire le long du cercle.
-
-### **Formulation** :
-Les positions des caméras peuvent être exprimées en termes d'angles $\theta_i = \frac{2\pi_i}{8}$, où i est l'indice de la caméra. La distance entre deux caméras $i$ et $j$ doit tenir compte de la circularité : 
-
-$$d_{circular}(i, j) = min(|\theta_i - \theta_j|, 2\pi-|\theta_i - \theta_j|) $$
-
-La distance de Wasserstein peut alors être calculée en intégrant ce coût circulaire.
-
-### **Interprétation :**
-- Une distance faible indique que les poids et leurs positions circulaires sont similaires.
-- Adaptée aux distributions sur un cercle.
-
-### **Avantages :**
-- Cette approche capture l'idée que deux caméras proches sur le cercle sont plus similaires que deux caméras opposées.
-- Capture la géométrie circulaire des caméras.
-- Fournit une correspondance naturelle entre les poids en fonction des positions.
-
-### **Inconvénients :**
-- Plus complexe à implémenter et calculer.
-- Peut être sensible au choix des paramètres de coût.
-
----
-
-## **5. Réindexation Circulaire**
-
-### **Description :**
-Cette méthode teste tous les alignements possibles entre les deux distributions pour trouver celui qui minimise une distance (e.g., Euclidienne).
-
-### **Interprétation :**
-- Trouve le meilleur alignement circulaire entre les poids des deux méthodes.
-- Une distance faible indique une bonne correspondance, même après réarrangement circulaire.
-
-### **Avantages :**
-- S’adapte à la périodicité circulaire des positions.
-- Robuste pour les distributions cycliques.
-
-### **Inconvénients :**
-- Coûteux en calcul pour un grand nombre de positions.
-- Ne fournit pas d’interprétation directe sans alignement explicite.
-
----
-
 ## **6. Similarité Circulaire Basée sur Fourier**
 
 ### **Description :**
@@ -139,26 +92,7 @@ Cette méthode analyse les distributions dans le domaine fréquentiel, permettan
 - Moins intuitive à interpréter.
 - Peut ignorer des détails locaux des distributions.
 
----
 
-## **7. Poids Pondérés par la Position Géométrique**
-
-### **Description :**
-Cette méthode combine directement les poids et les positions géométriques 3D pour calculer une distance pondérée.
-
-### **Interprétation :**
-- Une distance faible indique que les poids et leurs positions géométriques sont cohérents entre les deux méthodes.
-- Intègre à la fois l’information pondérale et spatiale.
-
-### **Avantages :**
-- Prend en compte à la fois les poids et les positions.
-- Fournit une interprétation géométrique forte.
-
-### **Inconvénients :**
-- Nécessite des coordonnées exactes et cohérentes.
-- Sensible aux erreurs dans les positions des caméras.
-
----
 
 ## **Résumé des Méthodes et Recommandations**
 

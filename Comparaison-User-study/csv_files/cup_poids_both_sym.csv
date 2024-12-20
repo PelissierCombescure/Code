@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,cup,dessus_face,0.0,3.5,0.0,0.103
+1,cup,dessus_face_droit,0.73,6.9,0.121,0.202
+2,cup,dessus_profil_droit,5.62,34.1,0.935,1.0
+3,cup,dessus_arriere_droit,6.01,19.4,1.0,0.569
+4,cup,dessus_arriere,3.36,4.600000000000001,0.559,0.135
