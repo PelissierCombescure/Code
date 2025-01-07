@@ -92,7 +92,49 @@ Cette méthode analyse les distributions dans le domaine fréquentiel, permettan
 - Moins intuitive à interpréter.
 - Peut ignorer des détails locaux des distributions.
 
+## **7.. Distance de Kullback-Leibler (KL Divergence)**
+Formule :
+ 
+### Interprétation :
+La divergence KL mesure combien d'information est "perdue" lorsque Q est utilisé pour approximer P. Elle est asymétrique.
+Préférence : Faible valeur
 
+### **Avantages :**
+- Fournit une mesure quantitative de la dissimilarité entre deux distributions.
+- Utile pour des tâches d'apprentissage automatique, notamment dans les modèles génératifs.
+
+### **Inconvénients :**
+- Asymétrique : elle peut donner des résultats différents selon l'ordre de P et Q.
+- Sensible aux valeurs nulles dans Q, car log(0) est indéfini.
+
+
+## **8. Distance de Jensen-Shannon (JS Divergence)**
+Formule :
+ 
+### Interprétation :
+La divergence JS est une version symétrique de la divergence KL. Elle mesure la similarité entre deux distributions en prenant leur moyenne. 
+Préférence : Faible valeur
+
+### **Avantages :**
+- Toujours définie et bornée entre 0 et 1 pour des distributions probabilistes
+
+### **Inconvénients :**
+- Plus coûteuse à calculer que KL.
+
+
+
+## **8.. Distance de Bhattacharyya**
+Formule :
+ 
+### Interprétation :
+Mesure la similarité entre deux distributions en calculant leur "overlap" (chevauchement).
+Préférence : Faible valeur
+
+### **Avantages :**
+- Convient pour des distributions aux formes proches
+
+### **Inconvénients :**
+- Sensible aux petites différences dans les probabilités.
 
 ## **Résumé des Méthodes et Recommandations**
 
@@ -106,7 +148,18 @@ Cette méthode analyse les distributions dans le domaine fréquentiel, permettan
 | Similarité Circulaire (Fourier)     | Oui                                         | Moyenne        | Moyenne        | Oui              |
 | Poids Pondérés Géométriquement      | Oui                                         | Haute          | Moyenne        | Oui              |
 
----
+### Résumé des Préférences
+
+| **Métrique**            | **Préférence**      | **Interprétation**                                                        |
+|-------------------------|---------------------|---------------------------------------------------------------------------|
+| KL Divergence           | Faible valeur       | Indique une faible différence d'information entre \(P\) et \(Q\).         |
+| JS Divergence           | Faible valeur       | Mesure une grande similarité entre \(P\) et \(Q\).                        |
+| Bhattacharyya           | Faible valeur       | Indique un chevauchement important entre les distributions.               |
+| Corrélation de Pearson  | Grande valeur       | Indique une forte relation linéaire positive entre \(P\) et \(Q\).        |
+| \(L^2\) (Euclidienne)   | Faible valeur       | Mesure des écarts faibles dans l'espace euclidien entre \(P\) et \(Q\).   |
+
+
+
 
 ## **Recommandation pour votre Cas**
 Compte tenu de la régularité des positions circulaires et de l’importance des poids associés :
