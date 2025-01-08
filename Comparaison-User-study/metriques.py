@@ -118,6 +118,8 @@ def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
     
     # df_both['poids_modelnet_norm'] = np.around(poids_modelnet/max(poids_modelnet), 3)
     # df_both['poids_us_norm'] = np.around(poids_us/max(poids_us), 3) 
+    
+    ## Normalisation, on divise par la somme pour avoir une densité de proba
     df_both['poids_modelnet_norm'] = np.around(poids_modelnet/np.sum(poids_modelnet), 3)
     df_both['poids_us_norm'] = np.around(poids_us/np.sum(poids_us), 3)  
 
@@ -142,6 +144,7 @@ def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
                 poids_label_sym_u = df_both[df_both['label'] == label_sym]['poids_us'].values[0]
                 poids_label_sym_m_norm = df_both[df_both['label'] == label_sym]['poids_modelnet_norm'].values[0]
                 poids_label_sym_u_norm = df_both[df_both['label'] == label_sym]['poids_us_norm'].values[0]
+                # On somme les poids des symétriques car chaque poids à un impact de 1, on perdrait cet impact si on prend le max
                 df_both_sym.loc[len(df_both_sym)] = [categorie, label, 
                                                      np.sum([poids_label_m, poids_label_sym_m]), 
                                                      np.sum([poids_label_u, poids_label_sym_u]),

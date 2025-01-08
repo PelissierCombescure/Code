@@ -1,3 +1,4 @@
 ,categorie,PS,euclidean_dist,manhattan_dist,cosine_similarity,fourier_dist,correlation-pvalue,kl_divergence,js_divergence,bhattacharyya_distance
-0,carVasa,0.66,0.449,1.051,0.565,1.269,"(np.float64(0.048), np.float64(0.91099))",0.777,0.428,0.226
-1,cup,0.66,0.199,0.454,0.901,0.564,"(np.float64(0.738), np.float64(0.03669))",0.194,0.217,0.055
+0,ideal,1.0,0.0,0.0,1.0,0.0,"(1, 0)",0.0,0.0,0.0010005003335835344
+2,carVasa,0.66,0.449,1.051,0.565,1.269,"(np.float64(0.048), np.float64(0.91099))",0.777,0.428,0.226
+3,cup,0.66,0.199,0.454,0.901,0.564,"(np.float64(0.738), np.float64(0.03669))",0.194,0.217,0.055
