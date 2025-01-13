@@ -195,3 +195,99 @@ def weighted_geometric_distance(weights1, weights2, positions):
     weighted_positions2 = weights2[:, None] * positions
     return np.linalg.norm(weighted_positions1 - weighted_positions2)
 
+def Dnom(A, B):
+    """
+    Calcule la distance Dnom entre deux listes circulaires.
+    
+    Parameters:
+        A (list or np.ndarray): Première liste de 8 éléments.
+        B (list or np.ndarray): Deuxième liste de 8 éléments.
+    
+    Returns:
+        float: Distance Dnom entre A et B.
+    """
+    A = np.array(A)
+    B = np.array(B)
+    
+    # Dnom est simplement la somme des différences absolues entre A et B
+    distance = np.sum(np.abs(A - B))/2
+    return distance
+
+
+def Dord(A, B):
+    """
+    Calcule la distance Dord entre deux listes circulaires.
+    
+    Parameters:
+        A (list or np.ndarray): Première liste de 8 éléments.
+        B (list or np.ndarray): Deuxième liste de 8 éléments.
+    
+    Returns:
+        float: Distance Dord entre A et B.
+    """
+    A = np.array(A)
+    B = np.array(B)
+    
+    # Calcul des préfixes cumulatifs
+    prefix_A = np.cumsum(A)
+    prefix_B = np.cumsum(B)
+    
+    # Dord est la somme des différences absolues entre les préfixes
+    distance = np.sum(np.abs(prefix_A - prefix_B))
+    return distance
+
+
+def Dmod(A, B):
+    """
+    Implémente l'algorithme Dmod pour calculer la distance entre deux histograms modulo.
+
+    Parameters:
+        A (list or np.ndarray): Première liste de 8 éléments.
+        B (list or np.ndarray): Deuxième liste de 8 éléments.
+
+    Returns:
+        float: Distance Dmod entre les deux listes.
+    """
+    A = np.array(A)
+    B = np.array(B)
+
+    # Étape 1 : Calcul du préfixe initial
+    prefix_sum = np.zeros_like(A)
+    prefix_sum[0] = A[0] - B[0]
+    for i in range(1, len(A)):
+        prefix_sum[i] = prefix_sum[i - 1] + (A[i] - B[i])
+
+    # Distance initiale (somme des valeurs absolues des préfixes)
+    h_dist = np.sum(np.abs(prefix_sum))
+
+    # Étape 2 : Réduction en ajoutant des cycles dans le sens horaire
+    while True:
+        positive_prefix = prefix_sum[prefix_sum > 0]
+        if len(positive_prefix) == 0:
+            break  # Aucun préfixe positif
+        else :
+            d = np.min(positive_prefix)
+            temp = prefix_sum - d
+            h_dist2 = np.sum(np.abs(temp))
+            if h_dist2 < h_dist:
+                h_dist = h_dist2
+                prefix_sum = temp
+            else:
+                break
+
+    # Étape 3 : Réduction en ajoutant des cycles dans le sens anti-horaire
+    while True:
+        negative_prefix = prefix_sum[prefix_sum < 0]
+        if len(negative_prefix) == 0:
+            break  # Aucun préfixe négatif
+        else :
+            d = np.max(negative_prefix)
+            temp = prefix_sum - d
+            h_dist2 = np.sum(np.abs(temp))
+            if h_dist2 < h_dist:
+                h_dist = h_dist2
+                prefix_sum = temp
+            else:
+                break  
+       
+    return h_dist
