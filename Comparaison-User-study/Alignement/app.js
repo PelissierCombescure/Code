@@ -14,7 +14,7 @@ let mesh_not_aligned = []
 let mesh_pbl = []
 // chemin des meshs
 let meshes_tocheck = [];
-const txtFilePath = 'paths/airplane_meshes_aligned.txt'; 
+const txtFilePath = 'paths/airplane_meshes_not_aligned_to_check.txt'; 
 // Load the OBJ file from the correct relative path
 const obj_file_path_source = 'Dataset-aligned/airplane/test/airplane_0637_SMPLER_centered_scaled_remeshing_iso_iter5_aligned.obj'; 
 //const obj_file_path_source = 'Dataset-aligned/car/test/car_0229_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_ok.obj'; 
