@@ -60,7 +60,7 @@ def get_poids1(ij_m, label_m, df_poids_US, df_data_cams):
     else :
         return poids_label_m/poids_max, None
 
-def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, dir_outputs,  sig=1.3, epsilon=2, scores_Ds = [0,0,1]):
+def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, dir_outputs, sig, epsilon, scores_Ds = [0,0,1]):
     bvs_courant = BVS[categorie_us]; cam_pov_u_sym = None
     ## bvs US
     ij_pov_u = list(BVS[categorie_us]['US']['ij'])[0]; cam_pov_u = np.around(list(BVS[categorie_us]['US']['cam'])[0], 2) ; print('pov_u', cam_pov_u, ij_pov_u)
@@ -93,7 +93,10 @@ def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, 
     #####################################################
     #### Impact -- Poids de la categorie courante
     Poids, _ = get_poids1(ij_pov_m, label_pov_m, bvs_courant['US'], df_coords)
-    score =  max(Ds, Poids)
+    #score =  max(Ds, Poids)
+    termes = [Ds, Poids]
+    pos = np.argmax(termes); max_values = termes[pos]; 
+    max_terme = ["C" if pos == 0 else "W"][0]
     print("Ds",Ds, "- W", Poids)
     
     ## Visualisation cam_u, cam_m, cam_u_sym
@@ -102,7 +105,7 @@ def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, 
     if cam_pov_u_sym is not None : cams.append(cam_pov_u_sym); colors.append([0,0,1])
     show_some_cams(mesh_us, f"{categorie_us}_poriximity_score-{len(BVS[categorie_us]['US']['df'])}cams", cams, colors, dir_outputs)
 
-    return score
+    return max_values, max_terme
 ##################### Autres métriques
 def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
     poids_modelnet = []; poids_us = []

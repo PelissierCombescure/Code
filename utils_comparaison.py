@@ -186,7 +186,113 @@ def show_cams_histogram(name, cams, poids1, dir_outputs) :
         for face in faces_mesh:
             # Convert face indices to 1-based indexing
             obj_file.write(f"f {' '.join(str(idx + 1) for idx in face)}\n")   
-            
+  
+
+def histogram_circulaire(w_us, w_m, dir_outputs, cat):
+    # Positions correspondantes sur un cercle (en radians)
+    angles_us = np.linspace(0, 2 * np.pi, len(w_us), endpoint=False)
+    angles_m = np.linspace(0, 2 * np.pi, len(w_m), endpoint=False)
+    # Conversion des coordonnées polaires en coordonnées cartésiennes (2D)
+    x_us = np.cos(angles_us); y_us = np.sin(angles_us)
+    x_m = 0.7*np.cos(angles_m); y_m = 0.7*np.sin(angles_m)
+    # Création d'une figure
+    plt.figure(figsize=(6, 6))
+    # Création d'un scatter plot 2D avec dégradé de couleurs
+    scatter_us = plt.scatter(x_us, y_us, c=w_us, cmap='RdPu', s=200, edgecolors='black')
+    scatter_m = plt.scatter(x_m, y_m, c=w_m, cmap='Blues', s=200, edgecolors='black')
+
+    # Ajouter une barre de couleur pour indiquer les valeurs des poids
+    plt.colorbar(scatter_us, label="US")
+    plt.colorbar(scatter_m, label="Modelnet")
+    # Configuration de l'aspect du graphique
+    plt.gca().set_aspect('equal', adjustable='box')  # Cercle parfait
+    plt.xticks([])  # Pas de graduation sur l'axe X
+    plt.yticks([])  # Pas de graduation sur l'axe Y
+    plt.title(cat)
+
+    # Affichage
+    plt.savefig(os.path.join(dir_outputs, cat+"_histogram_circulaire.png"))  
+    
+    
+def histograms_2D(weights_us, weights_m, labels, dir_outputs, cat_us):
+    # Création des indices pour les barres
+    x = np.arange(len(weights_us))
+    bar_width = 0.4  # Largeur des barres
+    # Création de la colormap et normalisation
+    cmap_us = plt.get_cmap('RdPu'); cmap_m = plt.get_cmap('Blues')
+    norm_us = plt.Normalize(vmin=min(weights_us), vmax=max(weights_us))
+    norm_m = plt.Normalize(vmin=min(weights_m), vmax=max(weights_m))
+    # Création de la figure et des axes
+    fig, ax = plt.subplots()
+    # Histogramme pour weights_us
+    colors1 = cmap_us(norm_us(weights_us))
+    bars1 = ax.bar(x - bar_width / 2, weights_us, color=colors1, edgecolor='black', width=bar_width, label='US')
+    # Histogramme pour weights_m
+    colors2 = cmap_m(norm_m(weights_m))
+    bars2 = ax.bar(x + bar_width / 2, weights_m, color=colors2, edgecolor='black', width=bar_width, label='Moldelnet')
+    # Ajouter une colorbar pour chaque histogramme
+    sm1 = plt.cm.ScalarMappable(cmap=cmap_us, norm=norm_us)
+    sm1.set_array([])
+    cbar1 = fig.colorbar(sm1, ax=ax, orientation='vertical', pad=0.02)
+    cbar1.set_label("US")
+
+    sm2 = plt.cm.ScalarMappable(cmap=cmap_m, norm=norm_m)
+    sm2.set_array([])
+    cbar2 = fig.colorbar(sm2, ax=ax, orientation='vertical', pad=0.15)
+    cbar2.set_label("Modelnet")
+
+    # Configuration des étiquettes et du graphique
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=45, ha='right')  # Étiquettes des caméras
+    ax.set_ylabel("Poids")
+    ax.set_title("Comparaison de deux histogrammes")
+    ax.legend()
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Ajustement de la mise en page et affichage
+    plt.tight_layout()
+    plt.savefig(os.path.join(dir_outputs, cat_us+"_histograms_supperposition.png"))  
+    
+
+    ###########################################
+    # Création de la figure et des sous-graphiques
+    fig, axes = plt.subplots(1, 2, figsize=(12, 6), sharey=True)
+    # Sous-graphique 1 : Histogramme pour weights_us
+    norm1 = plt.Normalize(vmin=min(weights_us), vmax=max(weights_us))
+    colors1 = cmap_us(norm1(weights_us))
+    axes[0].bar(range(len(weights_us)), weights_us, color=colors1, edgecolor='black')
+    axes[0].set_title("Histogramme - US - "+cat_us)
+    axes[0].set_xticks(range(len(weights_us)))
+    axes[0].set_xticklabels(labels, rotation=45, ha='right')
+    axes[0].set_ylabel("Poids")
+    axes[0].grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Ajouter une colorbar pour le premier histogramme
+    sm1 = plt.cm.ScalarMappable(cmap=cmap_us, norm=norm1)
+    sm1.set_array([])
+    fig.colorbar(sm1, ax=axes[0], orientation='vertical', label="Valeurs US")
+
+    # Sous-graphique 2 : Histogramme pour weights_m
+    norm2 = plt.Normalize(vmin=min(weights_m), vmax=max(weights_m))
+    colors2 = cmap_m(norm2(weights_m))
+    axes[1].bar(range(len(weights_m)), weights_m, color=colors2, edgecolor='black')
+    axes[1].set_title("Histogramme - Modelnet - "+cat_us)
+    axes[1].set_xticks(range(len(weights_m)))
+    axes[1].set_xticklabels(labels, rotation=45, ha='right')
+    axes[1].grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Ajouter une colorbar pour le second histogramme
+    sm2 = plt.cm.ScalarMappable(cmap=cmap_m, norm=norm2)
+    sm2.set_array([])
+    fig.colorbar(sm2, ax=axes[1], orientation='vertical', label="Valeurs Modelnet")
+
+    # Ajustement de la mise en page
+    plt.tight_layout()
+    plt.savefig(os.path.join(dir_outputs, cat_us+"_histograms_2d.png")) 
+
+
+
+          
 # Description : Calcule la position d'une caméra sur une sphère en la plaçant à une distance donnée du centre.
 # Paramètres :
 # # R_sphere : Rayon de la sphère.
@@ -284,3 +390,6 @@ def poids_modelnet_sur_US(df, camera_modelnet, centroid_modelnet, cameras_US, R_
     for k in range(len(poids)):
         df.loc[len(df)-1, f"{int(I_us[k])}-{J_us[k]}"] = np.round(poids[k]/sum(poids), precision)
     return df, camera_modelnet_sphere
+
+
+

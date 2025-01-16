@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,cabinet-t,dessus_face,22.59,4.5,0.357,0.265
+1,cabinet-t,dessus_face_droit,17.65,11.200000000000001,0.279,0.659
+2,cabinet-t,dessus_profil_droit,1.24,1.3,0.02,0.076
+3,cabinet-t,dessus_arriere_droit,10.05,0.0,0.159,0.0
+4,cabinet-t,dessus_arriere,11.73,0.0,0.185,0.0
