@@ -1,0 +1,1 @@
+/home/pelissier/These-ATER/Papier_international3/Dataset/ModelNet40_remeshing_iso/bench/test/bench_0189_SMPLER_centered_scaled_remeshing_iso_iter11.obj

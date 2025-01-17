@@ -106,6 +106,7 @@ def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, 
     show_some_cams(mesh_us, f"{categorie_us}_poriximity_score-{len(BVS[categorie_us]['US']['df'])}cams", cams, colors, dir_outputs)
 
     return max_values, max_terme
+
 ##################### Autres métriques
 def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
     poids_modelnet = []; poids_us = []
