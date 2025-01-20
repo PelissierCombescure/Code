@@ -14,9 +14,9 @@ let mesh_not_aligned = []
 let mesh_pbl = []
 // chemin des meshs
 let meshes_tocheck = [];
-const txtFilePath = 'paths/chair_meshes_aligned.txt'; 
+const txtFilePath = 'paths/night_stand_meshes_aligned.txt'; 
 // Load the OBJ file from the correct relative path
-const obj_file_path_source = 'Dataset-aligned/chair/test/chair_0891_SMPLER_centered_scaled_remeshing_iso_iter10_aligned.obj'; 
+const obj_file_path_source = 'Dataset-aligned/night_stand/test/night_stand_0244_SMPLER_centered_scaled_remeshing_iso_iter8_aligned.obj'; 
 //const obj_file_path_source = 'Dataset-aligned/car/test/car_0229_SMPLER_centered_scaled_remeshing_iso_iter5_aligned_ok.obj'; 
 const categorie = txtFilePath.split('.')[0].split('_').at(-1)
 // Load paths from file and then call setUp_3D
@@ -156,7 +156,7 @@ function setUp_3D(idx_mesh){
     camera.position.y = 0;
     camera.position.z = 0;
     // oriantation camera
-    idx_i = 2; idx_j = 3
+    idx_i = 4; idx_j = 2
     theta = 2*Math.PI * ( (2/8)*(idx_j==0) + (1/8)*(idx_j==1) + (-1/8)*(idx_j==3) + (-2/8)*(idx_j==4))
     delta = 2*Math.PI * (idx_i/8)
     camera.position.set(R*Math.cos(delta)*Math.cos(theta), R*Math.sin(theta), R*Math.sin(delta)*Math.cos(theta)) // repère JS
