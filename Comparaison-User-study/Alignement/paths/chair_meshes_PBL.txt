@@ -1,0 +1,4 @@
+Dataset-aligned/chair/train/chair_0739_SMPLER_centered_scaled_remeshing_iso_iter8_aligned.obj
+Dataset-aligned/chair/train/chair_0754_SMPLER_centered_scaled_remeshing_iso_iter5_aligned.obj
+Dataset-aligned/chair/train/chair_0401_SMPLER_centered_scaled_remeshing_iso_iter6_aligned.obj
+Dataset-aligned/chair/train/chair_0747_SMPLER_centered_scaled_remeshing_iso_iter9_aligned.obj
