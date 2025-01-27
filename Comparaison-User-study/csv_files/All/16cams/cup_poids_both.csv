@@ -1,0 +1,17 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,cup,dessus_face,0.0,3.5,0.0,0.015
+1,cup,dessus_face_droit,0.3999999999999999,6.9,0.018,0.029
+2,cup,dessus_profil_droit,4.0,34.1,0.182,0.144
+3,cup,dessus_arriere_droit,1.95,12.3,0.089,0.052
+4,cup,dessus_arriere,2.42,4.600000000000001,0.11,0.019
+5,cup,dessus_arriere_gauche,4.35,19.4,0.198,0.082
+6,cup,dessus_profil_gauche,2.14,27.6,0.097,0.116
+7,cup,dessus_face_gauche,0.52,3.6,0.024,0.015
+8,cup,face,0.0,2.0,0.0,0.008
+9,cup,face_droit,0.04,6.0,0.002,0.025
+10,cup,profil_droit,1.7800000000000002,48.0,0.081,0.203
+11,cup,arriere_droit,0.72,10.0,0.033,0.042
+12,cup,arriere,0.99,0.0,0.045,0.0
+13,cup,arriere_gauche,1.74,16.0,0.079,0.068
+14,cup,profil_gauche,0.7700000000000001,43.0,0.035,0.181
+15,cup,face_gauche,0.19,0.0,0.009,0.0

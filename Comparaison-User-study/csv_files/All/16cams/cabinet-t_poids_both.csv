@@ -1,0 +1,17 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,cabinet-t,dessus_face,16.39,4.5,0.259,0.02
+1,cabinet-t,dessus_face_droit,5.96,6.0,0.094,0.027
+2,cabinet-t,dessus_profil_droit,0.23,0.7,0.004,0.003
+3,cabinet-t,dessus_arriere_droit,3.86,0.0,0.061,0.0
+4,cabinet-t,dessus_arriere,8.520000000000001,0.0,0.135,0.0
+5,cabinet-t,dessus_arriere_gauche,3.3600000000000003,0.0,0.053,0.0
+6,cabinet-t,dessus_profil_gauche,0.6900000000000001,0.6000000000000001,0.011,0.003
+7,cabinet-t,dessus_face_gauche,6.720000000000001,5.200000000000001,0.106,0.023
+8,cabinet-t,face,6.19,97.0,0.098,0.433
+9,cabinet-t,face_droit,2.35,45.0,0.037,0.201
+10,cabinet-t,profil_droit,0.05,0.0,0.001,0.0
+11,cabinet-t,arriere_droit,1.61,14.0,0.025,0.062
+12,cabinet-t,arriere,3.12,4.0,0.049,0.018
+13,cabinet-t,arriere_gauche,1.38,9.0,0.022,0.04
+14,cabinet-t,profil_gauche,0.15,3.0,0.002,0.013
+15,cabinet-t,face_gauche,2.76,35.0,0.044,0.156

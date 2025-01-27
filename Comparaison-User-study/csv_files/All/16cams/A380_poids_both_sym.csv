@@ -1,0 +1,11 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,A380,dessus_face,13.31,18.0,0.072,0.098
+1,A380,dessus_face_droit,30.07,46.400000000000006,0.163,0.254
+2,A380,dessus_profil_droit,50.33,19.0,0.272,0.104
+3,A380,dessus_arriere_droit,33.78,10.600000000000001,0.183,0.058
+4,A380,dessus_arriere,5.619999999999999,5.0,0.03,0.027
+5,A380,face,5.51,26.0,0.03,0.142
+6,A380,face_droit,11.130000000000003,40.0,0.06,0.219
+7,A380,profil_droit,20.049999999999997,7.0,0.108,0.038
+8,A380,arriere_droit,12.82,4.0,0.069,0.022
+9,A380,arriere,2.22,7.0,0.012,0.038

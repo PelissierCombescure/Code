@@ -1,0 +1,17 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,bench,dessus_face,16.860000000000003,45.1,0.358,0.172
+1,bench,dessus_face_droit,4.380000000000001,23.0,0.093,0.088
+2,bench,dessus_profil_droit,0.23,5.4,0.005,0.021
+3,bench,dessus_arriere_droit,0.8600000000000001,9.3,0.018,0.035
+4,bench,dessus_arriere,6.409999999999999,22.200000000000003,0.136,0.085
+5,bench,dessus_arriere_gauche,1.36,7.4,0.029,0.028
+6,bench,dessus_profil_gauche,0.0,2.7,0.0,0.01
+7,bench,dessus_face_gauche,3.83,21.9,0.081,0.084
+8,bench,face,6.810000000000001,28.0,0.145,0.107
+9,bench,face_droit,1.61,29.0,0.034,0.111
+10,bench,profil_droit,0.05,0.0,0.001,0.0
+11,bench,arriere_droit,0.23,0.0,0.005,0.0
+12,bench,arriere,2.6900000000000004,34.0,0.057,0.13
+13,bench,arriere_gauche,0.46,4.0,0.01,0.015
+14,bench,profil_gauche,0.0,2.0,0.0,0.008
+15,bench,face_gauche,1.33,28.0,0.028,0.107
