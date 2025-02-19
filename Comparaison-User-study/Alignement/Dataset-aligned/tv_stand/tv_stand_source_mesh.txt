@@ -1,1 +1,1 @@
-/home/pelissier/These-ATER/Papier_international3/Dataset/ModelNet40_remeshing_iso/tv_stand/test/tv_stand_0306_SMPLER_centered_scaled_remeshing_iso_iter5.obj
+/home/pelissier/These-ATER/Papier_international3/Dataset/ModelNet40_remeshing_iso/tv_stand/test/tv_stand_0349_SMPLER_centered_scaled_remeshing_iso_iter6.obj
