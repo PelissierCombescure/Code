@@ -1,1 +1,1 @@
-/home/pelissier/These-ATER/Papier_international3/Dataset/ModelNet40_remeshing_iso/airplane/test/airplane_0637_SMPLER_centered_scaled_remeshing_iso_iter5.obj
+/home/pelissier/These-ATER/Papier_international3/Dataset/ModelNet40_remeshing_iso/airplane/test/airplane_0684_SMPLER_centered_scaled_remeshing_iso_iter5.obj

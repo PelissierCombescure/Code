@@ -5,7 +5,6 @@
 /// http://localhost:8000/index_axe_sym.html
 
 
-
 // MAIN
 // initialisation des variables
 init_variable(true)
@@ -15,9 +14,9 @@ let mesh_and_axe = []
 let mesh_pbl = []
 // chemin des meshs
 let meshes_tocheck = [];
-const txtFilePath = 'paths/tv_stand_meshes_aligned_ok_US.txt'; 
+const txtFilePath = 'paths/vase_meshes_aligned_ok_US.txt'; 
 // Load the OBJ file from the correct relative path
-const obj_file_path_source = 'Data_US/cabinet_regulier_tri_normed_centered_user_study.obj'; 
+const obj_file_path_source = 'Data_US/vase_update_normed_centered_user_study.obj'; 
 const categorie = obj_file_path_source.split('/')[1].split('_')[0]
 // Load paths from file and then call setUp_3D
 loadPathsFromFile(txtFilePath, () => {
@@ -157,6 +156,8 @@ function setUp_3D(idx_mesh){
     camera.position.z = 0;
     // oriantation camera
     // dresser-tv_stand-night_stand --> idx_i = 0; idx_j = 0
+    // airplane --> idx_i = 0; idx_j = 0
+    // car : idx_i = 0; idx_j = 1
     idx_i = 0; idx_j = 2
     theta = 2*Math.PI * ( (2/8)*(idx_j==0) + (1/8)*(idx_j==1) + (-1/8)*(idx_j==3) + (-2/8)*(idx_j==4))
     delta = 2*Math.PI * (idx_i/8)
