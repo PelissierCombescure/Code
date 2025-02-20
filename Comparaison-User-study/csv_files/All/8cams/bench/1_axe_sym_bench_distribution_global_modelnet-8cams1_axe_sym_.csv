@@ -1,9 +1,9 @@
 ,label,poids
-0,dessus_face,0.0
-1,dessus_face_droit,0.0
+0,dessus_face,20.029999999999998
+7,dessus_face_gauche,3.89
+1,dessus_face_droit,3.27
 2,dessus_profil_droit,0.0
 3,dessus_arriere_droit,0.0
 4,dessus_arriere,0.0
 5,dessus_arriere_gauche,0.0
 6,dessus_profil_gauche,0.0
-7,dessus_face_gauche,0.0

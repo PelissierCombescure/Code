@@ -1,0 +1,15 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,vase/test/vase_0527_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0527_SMPLER,0.0,0.0,0.0,0.05,0.9,0.05,0.0,0.0
+2,vase/test/vase_0541_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0541_SMPLER,0.0,0.06,0.88,0.06,0.0,0.0,0.0,0.0
+3,vase/test/vase_0508_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0508_SMPLER,0.0,0.0,0.0,0.0,0.28,0.72,0.0,0.0
+4,vase/test/vase_0575_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0575_SMPLER,0.29,0.71,0.0,0.0,0.0,0.0,0.0,0.0
+5,vase/test/vase_0481_SMPLER_centered_scaled_remeshing_iso_iter11,vase_0481_SMPLER,0.0,0.0,0.0,0.0,0.0,0.0,0.27,0.73
+6,vase/train/vase_0225_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0225_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+7,vase/train/vase_0461_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0461_SMPLER,0.29,0.0,0.0,0.0,0.0,0.0,0.0,0.71
+8,vase/train/vase_0416_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0416_SMPLER,0.29,0.71,0.0,0.0,0.0,0.0,0.0,0.0
+9,vase/train/vase_0137_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0137_SMPLER,0.0,0.73,0.27,0.0,0.0,0.0,0.0,0.0
+10,vase/train/vase_0029_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0029_SMPLER,0.87,0.07,0.0,0.0,0.0,0.0,0.0,0.07
+11,vase/train/vase_0049_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0049_SMPLER,0.0,0.0,0.0,0.0,0.0,0.0,0.27,0.73
+12,vase/train/vase_0047_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0047_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+13,vase/train/vase_0432_SMPLER_centered_scaled_remeshing_iso_iter5,vase_0432_SMPLER,0.0,0.06,0.88,0.06,0.0,0.0,0.0,0.0

@@ -1,0 +1,21 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,bench/test/bench_0187_SMPLER_centered_scaled_remeshing_iso_iter9,bench_0187_SMPLER,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+2,bench/test/bench_0188_SMPLER_centered_scaled_remeshing_iso_iter12,bench_0188_SMPLER,0.0,0.0,0.0,0.06,0.88,0.06,0.0,0.0
+3,bench/test/bench_0176_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0176_SMPLER,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+4,bench/train/bench_0082_SMPLER_centered_scaled_remeshing_iso_iter15,bench_0082_SMPLER,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+5,bench/train/bench_0075_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0075_SMPLER,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+6,bench/train/bench_0014_SMPLER_centered_scaled_remeshing_iso_iter9,bench_0014_SMPLER,0.0,0.69,0.31,0.0,0.0,0.0,0.0,0.0
+7,bench/train/bench_0069_SMPLER_centered_scaled_remeshing_iso_iter7,bench_0069_SMPLER,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+8,bench/train/bench_0007_SMPLER_centered_scaled_remeshing_iso_iter9,bench_0007_SMPLER,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+9,bench/train/bench_0061_SMPLER_centered_scaled_remeshing_iso_iter11,bench_0061_SMPLER,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+10,bench/train/bench_0086_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0086_SMPLER,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+11,bench/train/bench_0120_SMPLER_centered_scaled_remeshing_iso_iter10,bench_0120_SMPLER,0.0,0.0,0.0,0.0,0.31,0.69,0.0,0.0
+12,bench/train/bench_0001_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0001_SMPLER,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.69
+13,bench/train/bench_0043_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0043_SMPLER,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+14,bench/train/bench_0137_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0137_SMPLER,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+15,bench/train/bench_0172_SMPLER_centered_scaled_remeshing_iso_iter7,bench_0172_SMPLER,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+16,bench/train/bench_0070_SMPLER_centered_scaled_remeshing_iso_iter7,bench_0070_SMPLER,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+17,bench/train/bench_0114_SMPLER_centered_scaled_remeshing_iso_iter3,bench_0114_SMPLER,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+18,bench/train/bench_0165_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0165_SMPLER,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+19,bench/train/bench_0130_SMPLER_centered_scaled_remeshing_iso_iter8,bench_0130_SMPLER,0.0,0.0,0.0,0.06,0.88,0.06,0.0,0.0

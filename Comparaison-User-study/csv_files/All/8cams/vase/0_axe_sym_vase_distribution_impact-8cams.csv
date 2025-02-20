@@ -1,0 +1,20 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,vase/test/vase_0480_SMPLER_centered_scaled_remeshing_iso_iter11,vase_0480_SMPLER,0.0,0.0,0.29,0.71,0.0,0.0,0.0,0.0
+2,vase/test/vase_0485_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0485_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+3,vase/train/vase_0399_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0399_SMPLER,0.29,0.71,0.0,0.0,0.0,0.0,0.0,0.0
+4,vase/train/vase_0463_SMPLER_centered_scaled_remeshing_iso_iter10,vase_0463_SMPLER,0.0,0.0,0.0,0.0,0.0,0.06,0.88,0.06
+5,vase/train/vase_0450_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0450_SMPLER,0.0,0.0,0.0,0.05,0.9,0.05,0.0,0.0
+6,vase/train/vase_0291_SMPLER_centered_scaled_remeshing_iso_iter5,vase_0291_SMPLER,0.29,0.71,0.0,0.0,0.0,0.0,0.0,0.0
+7,vase/train/vase_0292_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0292_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+8,vase/train/vase_0227_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0227_SMPLER,0.0,0.06,0.88,0.06,0.0,0.0,0.0,0.0
+9,vase/train/vase_0107_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0107_SMPLER,0.0,0.0,0.29,0.71,0.0,0.0,0.0,0.0
+10,vase/train/vase_0294_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0294_SMPLER,0.0,0.0,0.0,0.0,0.28,0.72,0.0,0.0
+11,vase/train/vase_0180_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0180_SMPLER,0.0,0.0,0.0,0.0,0.0,0.06,0.88,0.06
+12,vase/train/vase_0434_SMPLER_centered_scaled_remeshing_iso_iter4,vase_0434_SMPLER,0.87,0.07,0.0,0.0,0.0,0.0,0.0,0.07
+13,vase/train/vase_0412_SMPLER_centered_scaled_remeshing_iso_iter8,vase_0412_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+14,vase/train/vase_0197_SMPLER_centered_scaled_remeshing_iso_iter5,vase_0197_SMPLER,0.0,0.0,0.0,0.05,0.9,0.05,0.0,0.0
+15,vase/train/vase_0210_SMPLER_centered_scaled_remeshing_iso_iter9,vase_0210_SMPLER,0.0,0.0,0.0,0.0,0.0,0.71,0.29,0.0
+16,vase/train/vase_0219_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0219_SMPLER,0.87,0.07,0.0,0.0,0.0,0.0,0.0,0.07
+17,vase/train/vase_0221_SMPLER_centered_scaled_remeshing_iso_iter6,vase_0221_SMPLER,0.0,0.73,0.27,0.0,0.0,0.0,0.0,0.0
+18,vase/train/vase_0128_SMPLER_centered_scaled_remeshing_iso_iter5,vase_0128_SMPLER,0.0,0.0,0.0,0.05,0.9,0.05,0.0,0.0

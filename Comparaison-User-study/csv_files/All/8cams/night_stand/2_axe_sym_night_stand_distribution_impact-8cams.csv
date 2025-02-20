@@ -1,0 +1,4 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,night_stand/test/night_stand_0246_SMPLER_centered_scaled_remeshing_iso_iter7,night_stand_0246,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+2,night_stand/train/night_stand_0198_SMPLER_centered_scaled_remeshing_iso_iter11,night_stand_0198,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0

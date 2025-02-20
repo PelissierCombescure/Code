@@ -1,0 +1,7 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,vase/test/vase_0515_SMPLER_centered_scaled_remeshing_iso_iter9,vase_0515_SMPLER,0.0,0.0,0.0,0.0,0.0,0.0,0.27,0.73
+2,vase/test/vase_0483_SMPLER_centered_scaled_remeshing_iso_iter5,vase_0483_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0
+3,vase/train/vase_0388_SMPLER_centered_scaled_remeshing_iso_iter7,vase_0388_SMPLER,0.0,0.0,0.0,0.0,0.28,0.72,0.0,0.0
+4,vase/train/vase_0257_SMPLER_centered_scaled_remeshing_iso_iter9,vase_0257_SMPLER,0.0,0.0,0.29,0.71,0.0,0.0,0.0,0.0
+5,vase/train/vase_0263_SMPLER_centered_scaled_remeshing_iso_iter9,vase_0263_SMPLER,0.0,0.0,0.0,0.72,0.28,0.0,0.0,0.0

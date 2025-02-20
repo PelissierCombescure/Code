@@ -1,0 +1,8 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,night_stand/test/night_stand_0216_SMPLER_centered_scaled_remeshing_iso_iter10,night_stand_0216,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+2,night_stand/test/night_stand_0278_SMPLER_centered_scaled_remeshing_iso_iter7,night_stand_0278,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.69
+3,night_stand/test/night_stand_0212_SMPLER_centered_scaled_remeshing_iso_iter7,night_stand_0212,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+4,night_stand/test/night_stand_0285_SMPLER_centered_scaled_remeshing_iso_iter8,night_stand_0285,0.0,0.0,0.0,0.0,0.0,0.69,0.31,0.0
+5,night_stand/train/night_stand_0163_SMPLER_centered_scaled_remeshing_iso_iter7,night_stand_0163,0.0,0.0,0.0,0.0,0.0,0.0,0.31,0.69
+6,night_stand/train/night_stand_0032_SMPLER_centered_scaled_remeshing_iso_iter8,night_stand_0032,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0

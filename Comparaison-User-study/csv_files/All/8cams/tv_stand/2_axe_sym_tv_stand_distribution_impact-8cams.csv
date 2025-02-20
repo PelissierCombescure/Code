@@ -1,0 +1,16 @@
+,path,name,0-1,1-1,2-1,3-1,4-1,5-1,6-1,7-1
+0,,labels US,dessus_face,dessus_face_droit,dessus_profil_droit,dessus_arriere_droit,dessus_arriere,dessus_arriere_gauche,dessus_profil_gauche,dessus_face_gauche
+1,tv_stand/test/tv_stand_0346_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0346,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+2,tv_stand/test/tv_stand_0345_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0345,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+3,tv_stand/test/tv_stand_0278_SMPLER_centered_scaled_remeshing_iso_iter12,tv_stand_0278,0.0,0.0,0.0,0.0,0.31,0.69,0.0,0.0
+4,tv_stand/test/tv_stand_0299_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0299,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+5,tv_stand/test/tv_stand_0343_SMPLER_centered_scaled_remeshing_iso_iter12,tv_stand_0343,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.69
+6,tv_stand/test/tv_stand_0331_SMPLER_centered_scaled_remeshing_iso_iter9,tv_stand_0331,0.89,0.06,0.0,0.0,0.0,0.0,0.0,0.06
+7,tv_stand/test/tv_stand_0349_SMPLER_centered_scaled_remeshing_iso_iter6,tv_stand_0349,0.0,0.0,0.0,0.0,0.0,0.69,0.31,0.0
+8,tv_stand/train/tv_stand_0062_SMPLER_centered_scaled_remeshing_iso_iter12,tv_stand_0062,0.0,0.69,0.31,0.0,0.0,0.0,0.0,0.0
+9,tv_stand/train/tv_stand_0072_SMPLER_centered_scaled_remeshing_iso_iter11,tv_stand_0072,0.31,0.69,0.0,0.0,0.0,0.0,0.0,0.0
+10,tv_stand/train/tv_stand_0058_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0058,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.69
+11,tv_stand/train/tv_stand_0118_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0118,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+12,tv_stand/train/tv_stand_0054_SMPLER_centered_scaled_remeshing_iso_iter9,tv_stand_0054,0.0,0.0,0.0,0.06,0.89,0.06,0.0,0.0
+13,tv_stand/train/tv_stand_0074_SMPLER_centered_scaled_remeshing_iso_iter8,tv_stand_0074,0.0,0.0,0.0,0.69,0.31,0.0,0.0,0.0
+14,tv_stand/train/tv_stand_0097_SMPLER_centered_scaled_remeshing_iso_iter13,tv_stand_0097,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.69
