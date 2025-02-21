@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,carVasa,dessus_face,0.0,9.800000000000002,0.0,0.138
+1,carVasa,dessus_face_droit,2.96,42.0,0.329,0.592
+2,carVasa,dessus_profil_droit,4.28,11.599999999999998,0.475,0.163
+3,carVasa,dessus_arriere_droit,1.77,3.4000000000000004,0.196,0.048
+4,carVasa,dessus_arriere,0.0,4.2,0.0,0.059

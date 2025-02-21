@@ -1,0 +1,11 @@
+,categorie - 4 axe sym,PS,Dnom,Dord,Dmod,L2_norm,L1_norm,cos_sim,fourier_dist,corr-pv,kl_div,js_div,bhatta_dist,circu_dist
+0,ideal,1,0.0,0.0,0.0,0.0,0.0,1.0,0.0,[1. 0.],0.0,0.0,-0.0,0.0
+2,carVasa - 0/38,"(np.float64(0.73), 'C')",,,,,,,,[nan nan],,,,
+3,cup - 0/22,"(np.float64(0.34), 'C')",,,,,,,,[nan nan],,,,
+4,A380 - 0/185,"(np.float64(0.73), 'C')",,,,,,,,[nan nan],,,,
+5,cabinet-d - 0/43,"(np.float64(0.75), 'W')",,,,,,,,[nan nan],,,,
+6,cabinet-t - 0/63,"(np.float64(0.75), 'W')",,,,,,,,[nan nan],,,,
+7,bench - 0/47,"(np.int64(1), 'C')",,,,,,,,[nan nan],,,,
+8,chair107 - 0/249,"(np.float64(0.73), 'C')",,,,,,,,[nan nan],,,,
+9,cabinet-n - 6/40,"(np.float64(0.34), 'C')",0.683,1.839,1.625,0.582,1.366,0.345,1.645,[-0.292  0.482],inf,0.633,0.815,1.366
+10,vase - 5/157,"(np.float64(0.73), 'C')",0.458,0.965,0.565,0.396,0.916,0.663,1.12,[0.25 0.55],0.588,0.39,0.191,0.916

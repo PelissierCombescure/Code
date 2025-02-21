@@ -212,6 +212,7 @@ def histogram_circulaire(w_us, w_m, dir_outputs, cat):
 
     # Affichage
     plt.savefig(os.path.join(dir_outputs, cat+"_histogram_circulaire.png"))  
+    plt.close()
     
     
 def histograms_2D(weights_us, weights_m, labels, dir_outputs, cat_us):
@@ -252,6 +253,7 @@ def histograms_2D(weights_us, weights_m, labels, dir_outputs, cat_us):
     # Ajustement de la mise en page et affichage
     plt.tight_layout()
     plt.savefig(os.path.join(dir_outputs, cat_us+"_histograms_supperposition.png"))  
+    plt.close()
     
 
     ###########################################
@@ -289,6 +291,7 @@ def histograms_2D(weights_us, weights_m, labels, dir_outputs, cat_us):
     # Ajustement de la mise en page
     plt.tight_layout()
     plt.savefig(os.path.join(dir_outputs, cat_us+"_histograms_2d.png")) 
+    plt.close()
 
 
 

@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,bench,dessus_face,20.03,45.1,0.737,0.329
+1,bench,dessus_face_droit,7.16,44.9,0.263,0.328
+2,bench,dessus_profil_droit,0.0,8.100000000000001,0.0,0.059
+3,bench,dessus_arriere_droit,0.0,16.700000000000003,0.0,0.122
+4,bench,dessus_arriere,0.0,22.200000000000003,0.0,0.162

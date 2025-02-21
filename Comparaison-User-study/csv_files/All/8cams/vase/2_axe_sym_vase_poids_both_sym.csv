@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,vase,dessus_face,1.7399999999999998,1.7000000000000002,0.134,0.046
+1,vase,dessus_face_droit,4.58,3.2,0.352,0.086
+2,vase,dessus_profil_droit,2.57,17.0,0.198,0.459
+3,vase,dessus_arriere_droit,2.38,10.200000000000001,0.183,0.276
+4,vase,dessus_arriere,1.7400000000000002,4.9,0.134,0.132

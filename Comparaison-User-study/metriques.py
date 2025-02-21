@@ -60,7 +60,7 @@ def get_poids1(ij_m, label_m, df_poids_US, df_data_cams):
     else :
         return poids_label_m/poids_max, None
 
-def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, dir_outputs, sig, epsilon, scores_Ds = [0,0,1]):
+def score_proximite(axe_sym, BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, dir_outputs, sig, epsilon, scores_Ds = [0,0,1]):
     bvs_courant = BVS[categorie_us]; cam_pov_u_sym = None
     ## bvs US
     ij_pov_u = list(BVS[categorie_us]['US']['ij'])[0]; cam_pov_u = np.around(list(BVS[categorie_us]['US']['cam'])[0], 2) ; print('pov_u', cam_pov_u, ij_pov_u)
@@ -71,9 +71,9 @@ def score_proximite(BVS, categorie_us, path_mesh_us, list_meshs_sym, df_coords, 
     #### Distance sémantique DS de la catégroie courantez
     ## Si les pov sont les mêmes
     if np.array_equal(ij_pov_u, ij_pov_m) : Ds = scores_Ds[-1]; print("cool c'est le meme pov")
-    ## Categorie avec des objets NON symetriques
-    elif not(categorie_us in list_meshs_sym):  Ds = get_ds2(cam_pov_u, cam_pov_m, sig, epsilon); print("cat pas sym")
-    ## categorie symetrique 
+    ## Categorie avec des objets NON symetriques : ex --> chair ou Axe_sym == 0
+    elif (not(categorie_us in list_meshs_sym) or (axe_sym == '0')):  Ds = get_ds2(cam_pov_u, cam_pov_m, sig, epsilon); print("cat pas sym ou 0axe")
+    ## categorie symetrique ou axe sym >=1 ou 'All' (pas ouf 'All' mais bon)
     else : ## Est ce que pov_u a un symetrique
         sym_to_u = get_sym(ij_pov_u, df_coords); print("cat sym")
         if sym_to_u[0]: 
