@@ -1,9 +1,9 @@
 ,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
-0,chair107,dessus_face,0.0,6.9,,0.177
-1,chair107,dessus_face_droit,0.0,11.1,,0.285
-2,chair107,dessus_profil_droit,0.0,7.800000000000001,,0.2
-3,chair107,dessus_arriere_droit,0.0,2.7000000000000006,,0.069
-4,chair107,dessus_arriere,0.0,2.7,,0.069
-5,chair107,dessus_arriere_gauche,0.0,1.6,,0.041
-6,chair107,dessus_profil_gauche,0.0,4.2,,0.108
-7,chair107,dessus_face_gauche,0.0,2.0,,0.051
+0,chair107,dessus_face,5.819999999999999,6.9,0.106,0.177
+1,chair107,dessus_face_droit,23.11,11.1,0.42,0.285
+2,chair107,dessus_profil_droit,5.259999999999999,7.800000000000001,0.096,0.2
+3,chair107,dessus_arriere_droit,0.81,2.7000000000000006,0.015,0.069
+4,chair107,dessus_arriere,4.98,2.7,0.091,0.069
+5,chair107,dessus_arriere_gauche,10.72,1.6,0.195,0.041
+6,chair107,dessus_profil_gauche,3.99,4.2,0.073,0.108
+7,chair107,dessus_face_gauche,0.31,2.0,0.006,0.051

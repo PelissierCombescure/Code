@@ -39,6 +39,23 @@ def get_sym(ij_pov, df_data_cams):
         elif i_pov == 7 : 
             return (True, [1, j_pov], get_coord_from_ij(1, j_pov, df_data_cams), get_label_from_ij(1, j_pov, df_data_cams))
     else : return (False, None, None, None)
+    
+def get_sym_chair(ij_pov, df_data_cams):
+    i_pov = ij_pov[0]; j_pov = int(ij_pov[1])
+    if i_pov in [0,2,3,4,6,7]:
+        if i_pov == 0 : 
+            return (True, [2, j_pov], get_coord_from_ij(2, j_pov, df_data_cams), get_label_from_ij(2, j_pov, df_data_cams))
+        elif i_pov == 2 : 
+            return (True, [0, j_pov], get_coord_from_ij(0, j_pov, df_data_cams), get_label_from_ij(0, j_pov, df_data_cams))
+        elif i_pov == 3 : 
+            return (True, [7, j_pov], get_coord_from_ij(7, j_pov, df_data_cams), get_label_from_ij(7, j_pov, df_data_cams))
+        elif i_pov == 4 : 
+            return (True, [6, j_pov], get_coord_from_ij(6, j_pov, df_data_cams), get_label_from_ij(6, j_pov, df_data_cams))
+        elif i_pov == 6 : 
+            return (True, [4, j_pov], get_coord_from_ij(4, j_pov, df_data_cams), get_label_from_ij(4, j_pov, df_data_cams))
+        elif i_pov == 7 : 
+            return (True, [3, j_pov], get_coord_from_ij(3, j_pov, df_data_cams), get_label_from_ij(3, j_pov, df_data_cams))
+    else : return (False, None, None, None)
 
 def get_ds2(coord_U, coord_M, sig, epsilon):
     coef_denom = math.pow((2*math.pi), 3/2)*math.pow(sig, 3)
@@ -75,7 +92,9 @@ def score_proximite(axe_sym, BVS, categorie_us, path_mesh_us, list_meshs_sym, df
     elif (not(categorie_us in list_meshs_sym) or (axe_sym == '0')):  Ds = get_ds2(cam_pov_u, cam_pov_m, sig, epsilon); print("cat pas sym ou 0axe")
     ## categorie symetrique ou axe sym >=1 ou 'All' (pas ouf 'All' mais bon)
     else : ## Est ce que pov_u a un symetrique
-        sym_to_u = get_sym(ij_pov_u, df_coords); print("cat sym")
+        if categorie_us == 'chair107' : sym_to_u = get_sym_chair(ij_pov_u, df_coords); print("cat sym_chair")
+        else : sym_to_u = get_sym(ij_pov_u, df_coords); print("cat sym")
+        # si le pov_u a un symetrique
         if sym_to_u[0]: 
             print("pov a un sym")
             # symetrique de ij_pov_u
@@ -140,14 +159,15 @@ def get_poids_from_BVS(BVS, categorie, labels_us, data_us_cam):
         # poids_label_m_norm = df_both[df_both['label'] == label]['poids_modelnet_norm'].values[0]
         # poids_label_u_norm = df_both[df_both['label'] == label]['poids_us_norm'].values[0]
         # Symetrique ?
-        sym = get_sym([i_label, j_label], data_us_cam)
+        if categorie == 'chair107' : sym = get_sym_chair([i_label, j_label], data_us_cam)
+        else :  sym = get_sym([i_label, j_label], data_us_cam)
         if (sym[0]):
             if (sym[-1] not in already_checked) :
                 label_sym = sym[-1]; already_checked.append(label_sym); already_checked.append(label)
                 poids_label_sym_m = df_both[df_both['label'] == label_sym]['poids_modelnet'].values[0]
                 poids_label_sym_u = df_both[df_both['label'] == label_sym]['poids_us'].values[0]
-                poids_label_sym_m_norm = df_both[df_both['label'] == label_sym]['poids_modelnet_norm'].values[0]
-                poids_label_sym_u_norm = df_both[df_both['label'] == label_sym]['poids_us_norm'].values[0]
+                #poids_label_sym_m_norm = df_both[df_both['label'] == label_sym]['poids_modelnet_norm'].values[0]
+                #poids_label_sym_u_norm = df_both[df_both['label'] == label_sym]['poids_us_norm'].values[0]
                 # On somme les poids des symétriques car chaque poids à un impact de 1, on perdrait cet impact si on prend le max
                 df_both_sym.loc[len(df_both_sym)] = [categorie, label, 
                                                      np.sum([poids_label_m, poids_label_sym_m]), 

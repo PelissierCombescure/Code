@@ -1,0 +1,6 @@
+,cat,label,poids_modelnet,poids_us,poids_modelnet_norm,poids_us_norm
+0,chair107,dessus_face,103.72,14.700000000000001,0.417,0.377
+1,chair107,dessus_face_droit,99.8,11.1,0.401,0.285
+2,chair107,dessus_arriere_droit,7.04,4.700000000000001,0.028,0.121
+3,chair107,dessus_arriere,17.25,6.9,0.069,0.177
+4,chair107,dessus_arriere_gauche,21.19,1.6,0.085,0.041
